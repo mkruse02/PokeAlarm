@@ -107,7 +107,8 @@ class DiscordAlarm(Alarm):
 
         # Set Alert Parameters
         self.__monsters = self.create_alert_settings(
-            settings.pop('monsters', {}), self._defaults['monsters'], 'monsters')
+            settings.pop('monsters', {}),
+            self._defaults['monsters'], 'monsters')
         self.__stops = self.create_alert_settings(
             settings.pop('stops', {}), self._defaults['stops'], 'stops')
         self.__gyms = self.create_alert_settings(
