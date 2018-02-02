@@ -88,12 +88,6 @@ class RaidEvent(BaseEvent):
         raid_end_time = get_time_as_str(self.raid_end, timezone)
         dts = self.custom_dts.copy()
 
-        exraid = self.gym_park
-        if exraid == 'unknown':
-            exraid = ''
-        else:
-            exraid = "\n*Potential EX Raid (" + exraid + ")*"
-
         boosted_weather_name = locale.get_weather_name(self.boosted_weather_id)
         weather_name = locale.get_weather_name(self.weather_id)
 
