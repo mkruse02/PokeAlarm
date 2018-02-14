@@ -12,6 +12,10 @@ from PokeAlarm.Utils import (
     get_type_emoji)
 from . import BaseEvent
 
+from PokeAlarm.shkl_geofence import get_geofences
+fences = get_geofences("location_fences.txt", None)
+personalized_fences = get_geofences("personalized_fences.txt", None)
+
 
 class MonEvent(BaseEvent):
     """ Event representing the discovery of a Pokemon. """
@@ -111,6 +115,16 @@ class MonEvent(BaseEvent):
         type1 = locale.get_type_name(self.types[0])
         type2 = locale.get_type_name(self.types[1])
 
+        fna = fences.fence_name(self.lat, self.lng)
+        fence_name = fna if fna else ""
+
+
+        total = ''
+        if self.iv > 99:
+            total += "<@&315432063937282049>"
+        for fenceName in personalized_fences.fence_names(self.lat, self.lng):
+            total += '<@' + fenceName + "> "
+
         dts = self.custom_dts.copy()
         dts.update({
             # Identification
@@ -175,6 +189,8 @@ class MonEvent(BaseEvent):
             'atk': self.atk_iv,
             'def': self.def_iv,
             'sta': self.sta_iv,
+            'location_fence' : fence_name,
+            'user_notifications' : total,
 
             # Type
             'type1': type1,
