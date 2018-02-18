@@ -50,15 +50,17 @@ class Geofences(object):
 
     def fence_names(self, latitude, longitude):
         names = []
-        for fence in self.fences:
-            if fence.contains(latitude, longitude):
-                names.append(fence.name)
+        if self.fences:
+            for fence in self.fences:
+                if fence.contains(latitude, longitude):
+                    names.append(fence.name)
         return names
 
     def fence_name(self, lat, lng):
-        for fence in self.fences:
-            if fence.contains(lat, lng):
-                return fence.name
+        if self.fences:
+            for fence in self.fences:
+                if fence.contains(lat, lng):
+                    return fence.name
 
     def pos_within_fences(self, pos):
         return self.within_fences(pos[0], pos[1])
