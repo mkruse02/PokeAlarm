@@ -149,7 +149,7 @@ class Manager(object):
 
         for gf in geofences:
             if gf not in self.geofences:
-                raise ValueError("Unable to create Rule: No Alarm "
+                raise ValueError("Unable to create Rule: No Geofence "
                                  "named {}!".format(gf))
 
         self.__mon_rules[name] = Rule(filters, alarms, geofences)
@@ -172,7 +172,7 @@ class Manager(object):
 
         for gf in geofences:
             if gf not in self.geofences:
-                raise ValueError("Unable to create Rule: No Alarm "
+                raise ValueError("Unable to create Rule: No Geofence "
                                  "named {}!".format(gf))
 
         self.__stop_rules[name] = Rule(filters, alarms, geofences)
@@ -195,7 +195,7 @@ class Manager(object):
 
         for gf in geofences:
             if gf not in self.geofences:
-                raise ValueError("Unable to create Rule: No Alarm "
+                raise ValueError("Unable to create Rule: No Geofence "
                                  "named {}!".format(gf))
 
         self.__gym_rules[name] = Rule(filters, alarms, geofences)
@@ -218,7 +218,7 @@ class Manager(object):
 
         for gf in geofences:
             if gf not in self.geofences:
-                raise ValueError("Unable to create Rule: No Alarm "
+                raise ValueError("Unable to create Rule: No Geofence "
                                  "named {}!".format(gf))
 
         self.__egg_rules[name] = Rule(filters, alarms, geofences)
@@ -241,7 +241,7 @@ class Manager(object):
 
         for gf in geofences:
             if gf not in self.geofences:
-                raise ValueError("Unable to create Rule: No Alarm "
+                raise ValueError("Unable to create Rule: No Geofence "
                                  "named {}!".format(gf))
 
         self.__raid_rules[name] = Rule(filters, alarms, geofences)
